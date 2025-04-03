@@ -13,6 +13,12 @@
 
     <script>
         const colors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A8", "#FFD700", "#8A2BE2", "#00FFFF", "#FF4500", "#ADFF2F", "#FF69B4"];
+
+        // ai music- tarot card
+        const audio = new Audio("background-music.mp3");
+        audio.loop = true;
+        audio.volume = 0.5;
+        audio.play().catch(error => console.log("Audio playback failed:", error));
         const gridSize = 29;
 
         function generatePixelArt() {
@@ -29,8 +35,6 @@
                 table.appendChild(row);
             }
         }
-
-    
         generatePixelArt();
     </script>
 </body>
