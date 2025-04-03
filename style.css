@@ -1,6 +1,5 @@
-
 h1  {
-    backround-color: #e20000;
+    background-color: #e20000;
     color: #333;
     font-size: 2em;
     text-align: right;
@@ -24,15 +23,16 @@ h2 {
     text-align: center;
 }
 body {
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(45deg, #ff9a9e, #fad0c4);
+    background-size: cover;
 }
 table {
     border-collapse: collapse;
     margin: 20px auto;
-    width: 90%;
+    max-width: 100%;
 }
 
 td {
@@ -41,15 +41,16 @@ td {
 }
 
 button {
-    margin: 10px;
-    padding: 10px;
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    border-radius: 65%;
+    border-radius: 20px;
 }
 
 button:hover {
@@ -65,10 +66,3 @@ h1, h2, p {
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3), 6px 6px 10px rgba(255, 255, 255, 0.5);
     background-color: rgba(255, 255, 255, 0.8);
 }
-
-body {
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px),
-                linear-gradient(45deg, #ff9a9e, #fad0c4);
-    background-size: 15px 10px, cover;
-}
-
