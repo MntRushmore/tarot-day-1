@@ -44,5 +44,50 @@
         }
         generatePixelArt(); // now hosted on vercel
     </script>
+
+    <script>
+        const secretImages = [
+            "https://hc-cdn.hel1.your-objectstorage.com/s/v3/472cce1112041fc6d1cffc744fa199c6f5ede983_t0266frgm-u01p8nh2wk0-419e58e38274-512.png",
+            "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ade5d69320131817172fb9f07dc801fa13db1c08_image.png",
+        ];
+
+        let clickCount = 0;
+        const maxClickToShow = 10;
+        const minClickToShow = 5;
+
+        const secretImage = document.createElement("img");
+        secretImage.style.display = "none";
+        secretImage.style.position = "absolute";
+        secretImage.style.top = "50%";
+        secretImage.style.left = "50%";
+        secretImage.style.transform = "translate(-50%, -50%)";
+        secretImage.style.zIndex = "1000";
+        secretImage.style.cursor = "pointer";
+        document.body.appendChild(secretImage);
+
+        document.querySelector("button").addEventListener("click", function() {
+            clickCount++;
+            if (clickCount >= minClickToShow && clickCount <= maxClickToShow) {
+                const randomIndex = Math.floor(Math.random() * secretImages.length);
+                secretImage.src = secretImages[randomIndex];
+                secretImage.style.display = "block";
+            } else if (clickCount > maxClickToShow) {
+                secretImage.style.display = "none";
+                clickCount = 0;
+            }
+        });
+
+        secretImage.addEventListener("click", function() {
+            secretImage.style.display = "none";
+            clickCount = 0;
+        });
+
+        document.addEventListener("click", function(event) {
+            if (event.target !== secretImage && clickCount > maxClickToShow) {
+                secretImage.style.display = "none";
+                clickCount = 0;
+            }
+        });
+    </script>
 </body>
 </html>
